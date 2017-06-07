@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>i-Sight Picklist</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="common.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<section>
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Generate Picklists</h1>
+			</div>
+			<div id="main-form">
+				<div class="form-group">
+					<label for="picklist-values" class="control-label">Picklist Values</label>
+					<textarea class="form-control" id="picklist-values" ></textarea>
+				</div>
+				<div class="form-group">
+					<label for="picklist-name" class="control-label">Picklist Name</label>
+					<input id="picklist-name" class="form-control"/>
+				</div>
+				<button id="form-submit" class="btn btn-success">Generate</button>
+				<button id="form-clear" class="btn btn-warning">Clear</button>
+			</div>
+			<div id="picklist-download" style="display:none;">
+				<div class="form-group" id="picklist-download-file">
+					<a class="btn btn-success" role="button" id="picklist-file" href="" download="picklist.json">Download</a>
+					<button id="form-back" class="btn btn-primary">Back</button>
+				</div>
+				<div class="form-group" id="picklist-download-inner">
+					<label for="picklist-output" class="control-label">Picklist Generated</label>
+					<textarea class="form-control" id="picklist-output"></textarea>
+				</div>
+			</div>
+			<span></span>
+	</section>
+</body>
+<script src='autosize.js'></script>
+
+</html>
