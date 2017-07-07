@@ -28,13 +28,17 @@ $(document).ready(function() {
 		if (picklistValues !== '' || picklistName !== '') {
 			var data = '[';
 			var name = picklistName.replace('.json', '');
+			var needRank = $("[name='rank']:checked").val();
+			var rankData = '"\n';
 			for (var i = 0; i < values.length; i++) {
 				values[i] = values[i].replace('\n', '');
+				if (needRank === 'Yes') {
+					rankData = '",\n		"rank": "' + (i + 1) + '"\n';
+				}
 				data += '\n\
 	{\n\
 		"name": "' + name + '",\n\
-		"value": "' + values[i] + '",\n\
-		"rank": "' + (i + 1) + '"\n\
+		"value": "' + values[i] + rankData + '\
 	},';
 			}
 			data = data.slice(0, -1);
