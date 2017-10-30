@@ -1,6 +1,6 @@
 // Setting the message for mandatory
-function checkMandatory(fieldName) {
-	$("span").text("Fill " + fieldName +"!").show().fadeOut(1000);
+function checkMandatory(msg) {
+	$("span").text(msg).show().fadeOut(1000);
 }
 // Generate the file
 function makeFile(text) {
@@ -14,32 +14,62 @@ $(document).ready(function() {
 	$("#form-submit").click(function (event) {
 		var picklistValues = $("#picklist-values").val();
 		if (picklistValues === ''){
-			checkMandatory("Picklist Values");
-			event.preventDefault();
-			return;
-		}
-		var picklistName = $("#picklist-name").val();
-		if (picklistName === ''){
-			checkMandatory("Picklist Name");
+			checkMandatory("Fill Picklist Values!");
 			event.preventDefault();
 			return;
 		}
 		var values = picklistValues.split('\n');
+		var picklistName = $("#picklist-name").val();
+		if (picklistName === ''){
+			checkMandatory("Fill Picklist Name!");
+			event.preventDefault();
+			return;
+		}
+		var addParent = false;
+		var parentValues;
+		if ($("[name='picklist-parent']:checked").val() === 'Yes') {
+			var parentPicklistValues = $("#parent-picklist-values").val();
+			if (parentPicklistValues === ''){
+				checkMandatory("Fill Parent Picklist Values!");
+				event.preventDefault();
+				return;
+			} else {
+				parentValues = parentPicklistValues.split('\n');
+				if (values.length !== parentValues.length) {
+					checkMandatory("Row Length Mismatch");
+					event.preventDefault();
+					return;
+				}
+			}
+			addParent = true;
+		}
 		if (picklistValues !== '' || picklistName !== '') {
 			var data = '[';
 			var name = picklistName.replace('.json', '');
-			var needRank = $("[name='rank']:checked").val();
-			var rankData = '"\n';
+			var needRank = $("[name='picklist-rank']:checked").val();
+			var rankData = '';
+			var parentData = '';
 			for (var i = 0; i < values.length; i++) {
 				values[i] = values[i].replace('\n', '');
 				if (needRank === 'Yes') {
-					rankData = '",\n		"rank": "' + (i + 1) + '"\n';
+					rankData = ',\n		"rank": "' + (i + 1) + '"';
+				}
+				if (addParent) {
+					var multiParent = parentValues[i].split(',');
+					parentData = ',\n		"parents": [';
+					for (var count = 0; count < multiParent.length; count++) {
+						parentData += '"' + multiParent[count].trim() + '"';
+						if (multiParent.length !== (count + 1)) {
+							parentData += ', ';
+						}
+					}
+					parentData += ']';
 				}
 				data += '\n\
 	{\n\
 		"name": "' + name + '",\n\
-		"value": "' + values[i] + rankData + '\
-	},';
+		"value": "' + values[i] + '"' + parentData + rankData +'\
+\n	},';
 			}
 			data = data.slice(0, -1);
 			data += '\n]'
@@ -55,6 +85,10 @@ $(document).ready(function() {
 		$("#picklist-download").hide();
 	});
 
+	$("#new-picklist").click(function (event) {
+		location.reload();
+	});
+
 	$("#form-clear").click(function (event) {
 		location.reload();
 	});
@@ -64,6 +98,25 @@ $(document).ready(function() {
 		var file = makeFile(data);
 		this.href = file;
 		this.download = $("#picklist-name").val();
+	});
+
+	$("#picklist-parent").click(function (event) {
+		if ($("[name='picklist-parent']:checked").val() === 'Yes') {
+			$("#div-picklist-values").css("width","49%");
+			$("#div-picklist-parent-values").show();
+			$("#div-label-picklist-values").css("width","49%");
+			$("#div-label-picklist-parent-values").show();
+			$("#picklist-values").addClass("line-numbers");
+			autosize.update($("#parent-picklist-values"));
+			autosize.update($("#picklist-values"));
+		} else {
+			$("#div-picklist-values").css("width","100%");
+			$("#div-label-picklist-values").css("width","100%");
+			$("#div-label-picklist-parent-values").hide();
+			$("#div-picklist-parent-values").hide();
+			$("#picklist-values").removeClass("line-numbers");
+			autosize.update($("#picklist-values"));
+		}
 	});
 
 });

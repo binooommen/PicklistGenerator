@@ -20,17 +20,30 @@
 				<h1>Generate Picklists</h1>
 			</div>
 			<div id="main-form">
-				<div class="form-group">
-					<label for="picklist-values" class="control-label">Picklist Values</label>
-					<textarea class="form-control" id="picklist-values" ></textarea>
+				<div id="div-picklist-values-and-label" class="form-group padding-10">
+					<div id="div-label-picklist-values" style="float:left; width: 100%;">
+						<label for="picklist-values" class="control-label">Picklist Values</label>
+					</div>
+					<div id="div-label-picklist-parent-values" class="parent-div">
+						<label for="parent-picklist-values" class="control-label">Parent Values</label>
+					</div>
+					<div id="div-picklist-values" style="float:left; width: 100%;">
+						<textarea class="form-control" id="picklist-values" placeholder="Value 1\nValue 2\nValue 3\nValue 4"></textarea>
+					</div>
+					<div id="div-picklist-parent-values" class="parent-div">
+						<textarea class="form-control line-numbers" id="parent-picklist-values" placeholder="Parent 1\nParent 1\nParent 2\nParent 2"></textarea>
+					</div>
 				</div>
-				<div class="form-group">
+				<div id="div-picklist-name" class="padding-10" style="clear: both;"> 
 					<label for="picklist-name" class="control-label">Picklist Name</label>
-					<input id="picklist-name" class="form-control"/>
+					<input id="picklist-name" class="form-control" placeholder="picklist.json"/>
 				</div>
-				<div class="form-group">
-					<label for="picklist-rank-label" class="control-label">Rank</label>
-					<input type="checkbox" name="rank" value="Yes">Yes
+				<div id="div-for-checkboxes" class="form-group padding-10">
+					<label for="picklist-rank" class="control-label">Rank</label>
+					<input type="checkbox" id="picklist-rank" name="picklist-rank" value="Yes">Yes
+					&nbsp;
+					<label for="picklist-parent" class="control-label">Parent</label>
+					<input type="checkbox" id="picklist-parent"  name="picklist-parent" value="Yes">Yes
 				</div>
 				<button id="form-submit" class="btn btn-success">Generate</button>
 				<button id="form-clear" class="btn btn-warning">Clear</button>
@@ -38,6 +51,7 @@
 			<div id="picklist-download" style="display:none;">
 				<div class="form-group" id="picklist-download-file">
 					<a class="btn btn-success" role="button" id="picklist-file" href="" download="picklist.json">Download</a>
+					<button id="new-picklist" class="btn btn-warning">New</button>
 					<button id="form-back" class="btn btn-primary">Back</button>
 				</div>
 				<div class="form-group" id="picklist-download-inner">
@@ -49,5 +63,10 @@
 	</section>
 </body>
 <script src='autosize.js'></script>
-
+<script>
+	var textAreas = document.getElementsByTagName('textarea');
+	Array.prototype.forEach.call(textAreas, function(elem) {
+		elem.placeholder = elem.placeholder.replace(/\\n/g, '\n');
+	});
+</script>
 </html>
