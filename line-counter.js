@@ -7,6 +7,8 @@
 		this.lineCount = 0;
 		this.textarea = document.getElementById(options.count);
 		this.numbers = document.getElementById(options.counter);
+		this.defaultCount = options.defaultCount || 10
+		this.textarea.addEventListener("keydown", this.display.bind(this), false);
 		this.textarea.addEventListener("keyup", this.display.bind(this), false);
 		this.display();
 	}
@@ -14,18 +16,20 @@
 	var proto = lineCounter.prototype;
 
 	proto.count = function () {
-		return this.textarea.value.split(/\r*\n/).length;
+		var count = this.textarea.value.split(/\r*\n/).length;
+		return count > this.defaultCount ? count : this.defaultCount;
 	};
 
 	proto.display = function() {
-		if(this.lineCount === this.count()) {
+		var count = this.count();
+		if(this.lineCount === count) {
 			return false;
 		}
-		this.lineCount = this.count();
 		this.numbers.innerHTML = "";
-		for(var i = 1; i <= this.lineCount; i++) {
+		for(var i = 1; i <= count; i++) {
 			this.numbers.appendChild(this.createNumberDisplay(i));
 		}
+		return this.lineCount = count;
 	};
 
 	proto.createNumberDisplay = function (num) {
