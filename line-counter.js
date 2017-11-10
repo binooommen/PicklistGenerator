@@ -4,27 +4,27 @@
 //  could totaly be optimized but it is at least a start
 (function(root) {
 	function lineCounter (options) {
-		this.picklistLineCount = 0;
-		this.picklistTextarea = document.getElementById(options.count);
-		this.picklistNumbers = document.getElementById(options.counter);
-		this.picklistTextarea.addEventListener("keyup", this.display.bind(this), false);
+		this.lineCount = 0;
+		this.textarea = document.getElementById(options.count);
+		this.numbers = document.getElementById(options.counter);
+		this.textarea.addEventListener("keyup", this.display.bind(this), false);
 		this.display();
 	}
 
 	var proto = lineCounter.prototype;
 
 	proto.count = function () {
-		return this.picklistTextarea.value.split(/\r*\n/).length;
+		return this.textarea.value.split(/\r*\n/).length;
 	};
 
 	proto.display = function() {
-		if(this.picklistLineCount === this.count()) {
+		if(this.lineCount === this.count()) {
 			return false;
 		}
-		this.picklistLineCount = this.count();
-		this.picklistNumbers.innerHTML = "";
-		for(var i = 1; i <= this.picklistLineCount; i++) {
-			this.picklistNumbers.appendChild(this.createNumberDisplay(i));
+		this.lineCount = this.count();
+		this.numbers.innerHTML = "";
+		for(var i = 1; i <= this.lineCount; i++) {
+			this.numbers.appendChild(this.createNumberDisplay(i));
 		}
 	};
 
