@@ -1,6 +1,4 @@
 textarea {
-	padding: 10px;
-	vertical-align: top;
 	width: 200px;
 }
 
@@ -13,15 +11,6 @@ textarea:focus {
 	float: right;
 }
 
-.line-numbers {
-	background: url(https://i.imgur.com/2cOaJ.png);
-	background-attachment: local;
-	background-repeat: no-repeat;
-	padding-left: 35px;
-	padding-top: 10px;
-	border-color:#ccc;
-	font-size: 11.5px;
-}
 .padding-10 {
 	padding-top: 10px;
 }
@@ -29,4 +18,45 @@ textarea:focus {
 	display:none;
 	float: right;
 	width: 50%;
+}
+
+#div-picklist-parent-values, 
+#div-picklist-values {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+#parent-numbers,
+#picklist-numbers {
+	width: 25px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	padding: 10px 0;
+	border-right: 1px solid #9d9d9d;
+	overflow: hidden;
+	display: block;
+	color: #9d9d9d;
+	word-wrap: break-word;
+	word-break: break-all;
+	padding: 0 0 0 5px;
+}
+
+#parent-picklist-values,
+#picklist-values {
+	padding: 0 0 0 30px;
+	font-family: monospace;
+	line-height: 1.5;
+	font-size: 11px;
+}
+
+.number {
+	display: block;
+	line-height: 1.4;
+	font-size: 11px;
+	margin-top: 1px;
+	text-align: center;
 }
