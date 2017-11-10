@@ -29,7 +29,7 @@ textarea:focus {
 
 #parent-numbers,
 #picklist-numbers {
-	width: 25px;
+	width: 35px;
 	height: 100%;
 	position: absolute;
 	top: 0;
@@ -47,7 +47,7 @@ textarea:focus {
 
 #parent-picklist-values,
 #picklist-values {
-	padding: 0 0 0 30px;
+	padding: 0 0 0 40px;
 	font-family: monospace;
 	line-height: 1.5;
 	font-size: 11px;
