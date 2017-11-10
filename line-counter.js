@@ -18,7 +18,6 @@
 	};
 
 	proto.display = function() {
-		console.log(this.picklistLineCount);
 		if(this.picklistLineCount === this.count()) {
 			return false;
 		}
