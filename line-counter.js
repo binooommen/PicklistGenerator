@@ -7,7 +7,7 @@
 		this.lineCount = 0;
 		this.textarea = document.getElementById(options.count);
 		this.numbers = document.getElementById(options.counter);
-		this.defaultCount = options.defaultCount || 10
+		this.defaultCount = options.defaultCount || 10;
 		this.textarea.addEventListener("keydown", this.display.bind(this), false);
 		this.textarea.addEventListener("keyup", this.display.bind(this), false);
 		this.display();
