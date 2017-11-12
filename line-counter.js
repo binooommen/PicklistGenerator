@@ -7,7 +7,6 @@
 		if(typeof options !== 'object' || !options.count) {
 			throw new Error("A count DOM element id must be provided.");
 		}
-		this.lineCount = 0;
 		this.textareaId = options.count;
 		this.textarea = document.getElementById(this.textareaId);
 		this.numbers = document.createElement("div");
@@ -30,15 +29,13 @@
 
 	proto.display = function() {
 		var count = this.count();
-		var lastElement = this.numbers.lastChild;
-		var num = lastElement ? lastElement.getAttribute('data-number') : 1;
-		for(; num <= count; num++) {
-			this.numbers.appendChild(this.createNumberDisplay(num));
+		this.numbers.innerHTML = "";
+		for(var i = 1; i <= count; i++) {
+			this.numbers.appendChild(this.createNumberDisplay(i));
 		}
 		// this might be able to be moved, but its good for now
-		this.textarea.style.paddingLeft =
+		return this.textarea.style.paddingLeft =
 			parseInt(this.numbersStyle.width) + this.paddingLeft + 'px';
-		return this.lineCount = count;
 	};
 
 	proto.createDisplay = function() {
@@ -50,7 +47,8 @@
 		this.addNumberStyles();
 		lineCounterUi.prepend(this.numbers);
 		this.textarea.parentNode.replaceChild(lineCounterUi, this.textarea);
-		return this.textarea = lineCounterUi.getElementsByClassName(this.textareaId)[0];
+		return this.textarea = 
+			lineCounterUi.getElementsByClassName(this.textareaId)[0];
 	};
 
 	proto.createNumberDisplay = function (num) {
