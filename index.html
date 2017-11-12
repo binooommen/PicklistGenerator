@@ -28,11 +28,9 @@
 						<label for="parent-picklist-values" class="control-label">Parent Values</label>
 					</div>
 					<div id="div-picklist-values" style="float:left; width: 100%;">
-						<div id="picklist-numbers"></div>
 						<textarea class="form-control" id="picklist-values" placeholder="Value 1\nValue 2\nValue 3\nValue 4"></textarea>
 					</div>
 					<div id="div-picklist-parent-values" class="parent-div">
-						<div id="parent-numbers"></div>
 						<textarea class="form-control line-numbers" id="parent-picklist-values" placeholder="Parent 1\nParent 1\nParent 2\nParent 2"></textarea>
 					</div>
 				</div>
@@ -74,13 +72,11 @@
 	});
 
 	var picklistCounter = new window.lineCounter({
-		counter: 'picklist-numbers',
 		count: 'picklist-values',
 		defualtCount: 4
 	});
 
 	var parentsCoutner = new window.lineCounter({
-		counter: 'parent-numbers',
 		count: 'parent-picklist-values',
 		defaultCount: 4
 	});

@@ -15,48 +15,18 @@ textarea:focus {
 	padding-top: 10px;
 }
 .parent-div {
-	display:none;
+	display: none;
 	float: right;
 	width: 50%;
 }
 
-#div-picklist-parent-values, 
-#div-picklist-values {
-	position: relative;
-	margin: 0;
-	padding: 0;
-}
-
-#parent-numbers,
-#picklist-numbers {
-	width: 40px;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	padding: 10px 0;
-	border-right: 1px solid #9d9d9d;
-	overflow: hidden;
-	display: block;
-	color: #9d9d9d;
-	word-wrap: break-word;
-	word-break: break-all;
-	padding: 0 0 0 5px;
-}
-
 #parent-picklist-values,
 #picklist-values {
-	padding: 0 0 0 42px;
-	font-family: monospace;
-	line-height: 1.5;
-	font-size: 11px;
+	position: relative;
+	line-height: 1.6;
+	font-size: 13px;
+	padding-top: 0;
+	padding-bottom: 0;
 }
 
-.number {
-	display: block;
-	line-height: 1.4;
-	font-size: 11px;
-	margin-top: 1px;
-	text-align: center;
-}
+
