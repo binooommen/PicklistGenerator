@@ -107,6 +107,14 @@ $(document).ready(function() {
 			$("#div-label-picklist-values").css("width","49%");
 			$("#div-label-picklist-parent-values").show();
 			$("#picklist-values").addClass("line-numbers");
+			// watch for our parent, and init and auto size it
+			if(! $('#line_count_ui_parent-picklist-values').length) {
+				var parentsCoutner = new window.lineCounter({
+					count: 'parent-picklist-values',
+					defaultCount: 4
+				});
+				autosize($("#parent-picklist-values").get(0));
+			}
 			autosize.update($("#parent-picklist-values"));
 			autosize.update($("#picklist-values"));
 		} else {

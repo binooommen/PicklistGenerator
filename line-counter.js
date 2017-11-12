@@ -15,8 +15,8 @@
 		this.paddingLeft = Math.abs(options.paddingLeft || 5);
 		this.textarea.addEventListener("keydown", this.display.bind(this), false);
 		this.textarea.addEventListener("keyup", this.display.bind(this), false);
-		this.numbersStyle = root.getComputedStyle(this.numbers, null);
 		this.textareaStyle = root.getComputedStyle(this.textarea, null);
+		this.numbersStyle = root.getComputedStyle(this.numbers, null);
 		this.display();
 	}
 
@@ -33,6 +33,7 @@
 		for(var i = 1; i <= count; i++) {
 			this.numbers.appendChild(this.createNumberDisplay(i));
 		}
+
 		// this might be able to be moved, but its good for now
 		return this.textarea.style.paddingLeft =
 			parseInt(this.numbersStyle.width) + this.paddingLeft + 'px';
@@ -40,6 +41,7 @@
 
 	proto.createDisplay = function() {
 		var lineCounterUi = document.createElement("div");
+		lineCounterUi.id = 'line_count_ui_' + this.textareaId;
 		lineCounterUi.style.position = "relative";
 		var clone = this.textarea.cloneNode();
 		clone.classList.add(this.textareaId);
@@ -61,7 +63,7 @@
 		span.style.lineHeight = this.textareaStyle.lineHeight;
 		span.style.fontSize = this.textareaStyle.fontSize;
 		span.style.textAlign = "center";
-		span.style.padding = "0 .4em";
+		span.style.padding = "0 5px";
 		return span;
 	};
 
