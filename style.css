@@ -1,6 +1,4 @@
 textarea {
-	padding: 10px;
-	vertical-align: top;
 	width: 200px;
 }
 
@@ -13,20 +11,22 @@ textarea:focus {
 	float: right;
 }
 
-.line-numbers {
-	background: url(https://i.imgur.com/2cOaJ.png);
-	background-attachment: local;
-	background-repeat: no-repeat;
-	padding-left: 35px;
-	padding-top: 10px;
-	border-color:#ccc;
-	font-size: 11.5px;
-}
 .padding-10 {
 	padding-top: 10px;
 }
 .parent-div {
-	display:none;
+	display: none;
 	float: right;
 	width: 50%;
 }
+
+#parent-picklist-values,
+#picklist-values {
+	position: relative;
+	line-height: 1.6;
+	font-size: 13px;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+

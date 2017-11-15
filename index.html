@@ -59,14 +59,22 @@
 					<textarea class="form-control" id="picklist-output"></textarea>
 				</div>
 			</div>
-			<span></span>
+			<span id="error-msg-span"></span>
 	</section>
 </body>
 <script src='autosize.js'></script>
+<script src='line-counter.js'></script>
 <script>
+(function() {
 	var textAreas = document.getElementsByTagName('textarea');
 	Array.prototype.forEach.call(textAreas, function(elem) {
 		elem.placeholder = elem.placeholder.replace(/\\n/g, '\n');
 	});
+
+	var picklistCounter = new window.lineCounter({
+		count: 'picklist-values',
+		defualtCount: 4
+	});
+})();
 </script>
 </html>
