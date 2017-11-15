@@ -15,6 +15,7 @@
 		this.paddingLeft = Math.abs(options.paddingLeft || 5);
 		this.textarea.addEventListener("keydown", this.display.bind(this), false);
 		this.textarea.addEventListener("keyup", this.display.bind(this), false);
+		this.textarea.addEventListener("input", this.display.bind(this), false);
 		this.textareaStyle = root.getComputedStyle(this.textarea, null);
 		this.numbersStyle = root.getComputedStyle(this.numbers, null);
 		this.display();
