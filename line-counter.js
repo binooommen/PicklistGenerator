@@ -79,7 +79,7 @@
 		this.numbers.style.overflow = "hidden";
 		this.numbers.style.display = "inline-block";
 		this.numbers.style.color = "#9d9d9d";
-		this.numbers.style.backgroundColor = "#ccc";
+		this.numbers.style.backgroundColor = "#eee";
 		this.numbers.style.zIndex =  1;	
 	};
 

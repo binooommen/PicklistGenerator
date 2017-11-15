@@ -1,6 +1,6 @@
 // Setting the message for mandatory
 function checkMandatory(msg) {
-	$("span").text(msg).show().fadeOut(1000);
+	$("#error-msg-span").text(msg).show().fadeOut(1000);
 }
 // Generate the file
 function makeFile(text) {
