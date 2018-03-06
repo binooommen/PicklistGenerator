@@ -13,4 +13,5 @@ Feel free to pickup stories under the Issues tab
 
 ## Credits
 * Bino Oommen Samuel
+* Scott Hardy
 
