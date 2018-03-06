@@ -8,5 +8,9 @@ Helps generate picklists with rank
 3. Click on generate button.
 4. Click on download button.
 
+## Willing to help?
+Feel free to pickup stories under the Issues tab
+
 ## Credits
 * Bino Oommen Samuel
+
