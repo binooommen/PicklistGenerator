@@ -50,7 +50,7 @@ $(document).ready(function() {
 			var rankData = '';
 			var parentData = '';
 			for (var i = 0; i < values.length; i++) {
-				values[i] = values[i].replace('\n', '');
+				values[i] = values[i].replace('\n', '').trim();
 				if (needRank === 'Yes') {
 					rankData = ',\n		"rank": "' + (i + 1) + '"';
 				}
