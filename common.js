@@ -128,3 +128,20 @@ $(document).ready(function() {
 	});
 
 });
+
+// Go to the top of the page functionality
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.documentElement.scrollTop > 900) {
+        document.getElementById("goTopBtn").style.display = "block";
+    } else {
+        document.getElementById("goTopBtn").style.display = "none";
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
