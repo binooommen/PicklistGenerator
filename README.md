@@ -1,4 +1,4 @@
-# picklist-generator
+# Picklist Generator
 ## Description
 Helps generate picklists with rank
 
