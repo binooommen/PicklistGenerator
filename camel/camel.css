@@ -1,0 +1,11 @@
+#camel-values {
+	position: relative;
+	line-height: 1.6;
+	font-size: 13px;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.camel-div {
+	float: right;
+	width: 50%;
+}
