@@ -41,6 +41,7 @@ $(document).ready(function() {
 			data = data.slice(0, -1);
 			$("#camel-output-values").val(data);
 			autosize.update($("#camel-output-values"));
+			$("#camel-output-values").change();
 		}
 	});
 

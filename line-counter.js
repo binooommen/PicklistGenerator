@@ -11,10 +11,8 @@
 		this.textarea = document.getElementById(this.textareaId);
 		this.numbers = document.createElement("div");
 		this.createDisplay();
-		this.defaultCount = Math.abs(options.defaultCount || 10);
+		this.defaultCount = Math.abs(options.defaultCount || 100);
 		this.paddingLeft = Math.abs(options.paddingLeft || 5);
-		this.textarea.addEventListener("keydown", this.display.bind(this), false);
-		this.textarea.addEventListener("keyup", this.display.bind(this), false);
 		this.textarea.addEventListener("input", this.display.bind(this), false);
 		this.textareaStyle = root.getComputedStyle(this.textarea, null);
 		this.numbersStyle = root.getComputedStyle(this.numbers, null);
