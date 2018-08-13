@@ -21,7 +21,21 @@ $(document).ready(function() {
 		if (camelValues !== '') {
 			var data = '';
 			for (var i = 0; i < values.length; i++) {
-				data += camelize(values[i].replace('\n', '').trim());
+				var camelizedValues = values[i].replace('\n', '').trim();
+				var smartCapitalize = $("[name='camel-smart-capitalize']:checked").val();
+				var ignoreSpecial = $("[name='camel-ignore-special']:checked").val();
+				var ignoreNumbers = $("[name='camel-ignore-numbers']:checked").val();
+				if (smartCapitalize === 'Yes') {
+					camelizedValues = camelizedValues.toLowerCase();
+				}
+				if (ignoreSpecial === 'Yes') {
+					camelizedValues = camelizedValues.replace(/[^\w\d\s]/g, '').trim();
+				}
+				if (ignoreNumbers === 'Yes') {
+					camelizedValues = camelizedValues.replace(/\d/g, '').trim();
+				}
+				camelizedValues = camelize(camelizedValues);
+				data += camelizedValues;
 				data += '\n';
 			}
 			data = data.slice(0, -1);

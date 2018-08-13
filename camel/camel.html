@@ -24,7 +24,7 @@
 			<div id="main-form">
 				<div id="div-camel-values-and-label" class="form-group padding-10">
 					<div id="div-label-camel-values" style="float:left; width: 49%;">
-						<label for="camel-values" class="control-label">Values</label>
+						<label for="camel-values" class="control-label">Input Values</label>
 					</div>
 					<div id="div-label-camel-output-values" class="camel-div">
 						<label for="parent-picklist-values" class="control-label">Output Values</label>
@@ -36,7 +36,17 @@
 						<textarea class="form-control line-numbers" id="camel-output-values" placeholder="firstName\nlastName\ncountry\nphoneNumber"></textarea>
 					</div>
 				</div>
-				<div id="div-camel-buttons" class="padding-10" style="clear: both;"> 
+				<div id="div-for-camel-checkboxes" class="form-group padding-10" style="clear: both;">
+					<label for="camel-smart-capitalize" class="control-label">Smart Capitalize</label>
+					<input type="checkbox" checked="checked" id="camel-smart-capitalize" name="camel-smart-capitalize" value="Yes">Yes
+					<br>
+					<label for="camel-ignore-special" class="control-label">Ignore Special Characters</label>
+					<input type="checkbox" checked="checked" id="camel-ignore-special"  name="camel-ignore-special" value="Yes">Yes
+					<br>
+					<label for="camel-ignore-numbers" class="control-label">Ignore Numbers</label>
+					<input type="checkbox" checked="checked" id="camel-ignore-numbers"  name="camel-ignore-numbers" value="Yes">Yes
+				</div>
+				<div id="div-camel-buttons" class="padding-10"> 
 					<button id="form-camel-submit" class="btn btn-success">Generate</button>
 					<button id="form-camel-clear" class="btn btn-warning">Clear</button>
 				</div>
