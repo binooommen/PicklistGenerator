@@ -22,15 +22,9 @@ $(document).ready(function() {
 			var data = '';
 			for (var i = 0; i < values.length; i++) {
 				var camelizedValues = values[i].replace('\n', '').trim();
-				var smartCapitalize = $("[name='camel-smart-capitalize']:checked").val();
-				var ignoreSpecial = $("[name='camel-ignore-special']:checked").val();
+				camelizedValues = camelizedValues.toLowerCase();
+				camelizedValues = camelizedValues.replace(/[^\w\d\s]/g, '').trim();
 				var ignoreNumbers = $("[name='camel-ignore-numbers']:checked").val();
-				if (smartCapitalize === 'Yes') {
-					camelizedValues = camelizedValues.toLowerCase();
-				}
-				if (ignoreSpecial === 'Yes') {
-					camelizedValues = camelizedValues.replace(/[^\w\d\s]/g, '').trim();
-				}
 				if (ignoreNumbers === 'Yes') {
 					camelizedValues = camelizedValues.replace(/\d/g, '').trim();
 				}
