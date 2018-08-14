@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Camel</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="camel.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../style.css">
+	<link rel="stylesheet" href="camel.css">
+</head>
+
+<body>
+	<section>
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Camel Case Generator</h1>
+				<h4><a href="../index.html">Generate Picklists</a></h4>
+			</div>
+			<div id="main-form">
+				<div id="div-camel-values-and-label" class="form-group padding-10">
+					<div id="div-label-camel-values" style="float:left; width: 49%;">
+						<label for="camel-values" class="control-label">Input Values</label>
+					</div>
+					<div id="div-label-camel-output-values" class="camel-div">
+						<label for="parent-picklist-values" class="control-label">Output Values</label>
+					</div>
+					<div id="div-camel-values" style="float:left; width: 49%;">
+						<textarea class="form-control line-numbers" id="camel-values" placeholder="First Name\nLast Name\nCountry\nPhone Number"></textarea>
+					</div>
+					<div id="div-camel-output-values" class="camel-div">
+						<textarea class="form-control line-numbers" id="camel-output-values" placeholder="firstName\nlastName\ncountry\nphoneNumber"></textarea>
+					</div>
+				</div>
+				<div id="div-for-camel-checkboxes" class="form-group padding-10" style="clear: both;">
+					<label for="camel-ignore-numbers" class="control-label">Ignore Numbers</label>
+					<input type="checkbox" checked="checked" id="camel-ignore-numbers"  name="camel-ignore-numbers" value="Yes">Yes
+				</div>
+				<div id="div-camel-buttons" class="padding-10"> 
+					<button id="form-camel-submit" class="btn btn-success">Generate</button>
+					<button id="form-camel-clear" class="btn btn-warning">Clear</button>
+				</div>
+			</div>
+			<span id="error-msg-span"></span>
+			<button onclick="topFunction()" id="goTopBtn" class="glyphicon glyphicon-arrow-up" title="Go to top"></button>
+	</section>
+</body>
+<script src='../autosize.js'></script>
+<script src='../line-counter.js'></script>
+<script>
+(function() {
+	var textAreas = document.getElementsByTagName('textarea');
+	Array.prototype.forEach.call(textAreas, function(elem) {
+		elem.placeholder = elem.placeholder.replace(/\\n/g, '\n');
+	});
+
+	var camelCounter = new window.lineCounter({
+		count: 'camel-values',
+		defualtCount: 4
+	});
+	var camelOutputCounter = new window.lineCounter({
+		count: 'camel-output-values',
+		defualtCount: 4
+	});
+})();
+</script>
+</html>
