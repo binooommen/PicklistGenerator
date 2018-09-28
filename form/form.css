@@ -1,0 +1,13 @@
+#field-values {
+	position: relative;
+	line-height: 1.6;
+	font-size: 13px;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.padding-10 {
+	padding-top: 10px;
+}
+#form-back {
+	float: right;
+}
