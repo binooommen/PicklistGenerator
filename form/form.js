@@ -21,11 +21,23 @@ $(document).ready(function() {
 		var values = fieldValues.split('\n');
 		if (fieldValues !== '') {
 			var data = '[';
+			var isIndex = $("[name='which-form-radio']:checked").val() === 'index';
+			var isForm = $("[name='which-form-radio']:checked").val() === 'form';
+			var extraInfo = '';
 			for (var i = 0; i < values.length; i++) {
 				values[i] = values[i].replace('\n', '').trim();
+				if (isIndex) {
+					extraInfo = ',\n		caption: \'' + values[i] + '\',\n\
+		kind: \'editable\',\n\
+		type: \'textbox\'';
+				}
+				if (isForm) {
+					extraInfo = ',\n		displayRule: \'\'';
+				}
 				data += '\n\
 	{\n\
 		field: \'' + values[i] + '\'\
+' + extraInfo + '\
 \n	},';
 			}
 			data = data.slice(0, -1);
