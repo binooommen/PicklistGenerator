@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Form</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="../form/form.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="form.css">
+	<link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+</head>
+
+<body>
+	<section>
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Form Generator</h1>
+				<h4>
+					<div>
+						<a href="../index.html">Generate Picklists</a> |
+						<a href="../camel/camel.html">Camel Case Generator</a> |
+						<a href="form.html">Form Generator</a>
+					</div>
+				</h4>
+			</div>
+			<div id="main-form">
+				<div id="div-field-values-and-label" class="form-group padding-10">
+					<div id="div-label-field-values" style="float:left; width: 100%;">
+						<label for="field-values" class="control-label">Field Values</label>
+					</div>
+					<div id="div-field-values" style="float:left; width: 100%;">
+						<textarea class="form-control" id="field-values" placeholder="firstName\nlastName\ncountry\npostalCode"></textarea>
+					</div>
+				</div>
+				<div id="div-for-radio" class="padding-10" style="clear: both;">
+					<input type="radio" id="which-form-radio" name="which-form-radio" value="index" checked>&nbsp;index.js
+					&nbsp;
+					<input type="radio" id="which-form-radio" name="which-form-radio" value="form">&nbsp;form.js
+					&nbsp;
+					<input type="radio" id="which-form-radio" name="which-form-radio" value="nothing">&nbsp;form.js without displayRule
+				</div>
+				<div class="padding-10" style="clear: both;">
+					<button id="form-submit" class="btn btn-success">Generate</button>
+					<button id="form-clear" class="btn btn-warning">Clear</button>
+				</div>
+			</div>
+			<div id="form-download" style="display:none;">
+				<div class="form-group" id="form-download-file">
+					<a class="btn btn-success" role="button" id="form-file" href="" download="form.json">Download</a>
+					<button id="new-form" class="btn btn-warning">New</button>
+					<button id="form-back" class="btn btn-primary">Back</button>
+				</div>
+				<div class="form-group" id="field-download-inner">
+					<label for="form-output" class="control-label">Form Generated</label>
+					<textarea class="form-control" id="form-output"></textarea>
+				</div>
+			</div>
+			<span id="error-msg-span"></span>
+	</section>
+</body>
+<script src='../autosize.js'></script>
+<script src='../line-counter.js'></script>
+<script>
+(function() {
+	var textAreas = document.getElementsByTagName('textarea');
+	Array.prototype.forEach.call(textAreas, function(elem) {
+		elem.placeholder = elem.placeholder.replace(/\\n/g, '\n');
+	});
+
+	var FieldCounter = new window.lineCounter({
+		count: 'field-values',
+		defualtCount: 4
+	});
+})();
+</script>
+</html>
